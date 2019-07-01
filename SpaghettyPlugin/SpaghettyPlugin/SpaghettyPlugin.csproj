@@ -46,6 +46,8 @@
     <Compile Include="DisplayPasta.Designer.cs">
       <DependentUpon>DisplayPasta.cs</DependentUpon>
     </Compile>
+    <Compile Include="ISerializingPastaBowl.cs" />
+    <Compile Include="ManualPastaBowl.cs" />
     <Compile Include="PastaPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

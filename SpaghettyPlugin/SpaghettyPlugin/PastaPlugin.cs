@@ -12,11 +12,11 @@ namespace SpaghettyPlugin
 		private const string SPG_EXT = ".spg";
 		private const string NEW_EXT = ".nspg";
 		private const string ICON_FILENAME = "pasta48.png";
-		private const string PASTA_FILENAME = "pasta.json";
+		private const string PASTA_FILENAME = "pasta.txt";
 
 		private readonly string PLUGIN_LOWER = PLUGIN_NAME.ToLowerInvariant();
 
-		private IDictionary<string, string> _spagBowl;
+		private ISerializingPastaBowl _spagBowl;
 		private IPluginHost _pluginHost;
 		private ICatItemFactory _catFactory;
 		private uint? _hash;
@@ -25,17 +25,14 @@ namespace SpaghettyPlugin
 
 		public void init(IPluginHost pluginHost)
 		{
-			this._pluginHost = pluginHost;
-			this._catFactory = pluginHost.catItemFactory();
+			_pluginHost = pluginHost;
+			_catFactory = pluginHost.catItemFactory();
 
-			_spagBowl = new Dictionary<string, string>();
+			var cfgPath = pluginHost.launchyPaths().getConfigPath();
+			var pastaFullPath = System.IO.Path.Combine(cfgPath, PASTA_FILENAME);
 
-
-
-
-			//TODO remove this
-			_spagBowl.Add("facepalm-world", "![7f9158a9-7c33-43a2-8bfe-e081afb356ae-image.png](/assets/uploads/files/1561910847061-7f9158a9-7c33-43a2-8bfe-e081afb356ae-image.png)");
-
+			_spagBowl = new ManualPastaBowl(pastaFullPath);
+			_spagBowl.Load();
 		}
 
 		#region info getters
@@ -253,6 +250,8 @@ namespace SpaghettyPlugin
 			{
 				//TODO add renaming
 				_spagBowl[key] = pw.GetPasta();
+
+				_spagBowl.Save();
 			}
 		}
 		#endregion
