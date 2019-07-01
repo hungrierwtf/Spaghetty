@@ -53,7 +53,7 @@
 			this.canBt.Location = new System.Drawing.Point(409, 310);
 			this.canBt.Name = "canBt";
 			this.canBt.Size = new System.Drawing.Size(75, 23);
-			this.canBt.TabIndex = 1;
+			this.canBt.TabIndex = 2;
 			this.canBt.Text = "&Cancel";
 			this.canBt.UseVisualStyleBackColor = true;
 			// 
@@ -64,7 +64,7 @@
 			this.saveBt.Location = new System.Drawing.Point(328, 310);
 			this.saveBt.Name = "saveBt";
 			this.saveBt.Size = new System.Drawing.Size(75, 23);
-			this.saveBt.TabIndex = 2;
+			this.saveBt.TabIndex = 1;
 			this.saveBt.Text = "&Save";
 			this.saveBt.UseVisualStyleBackColor = true;
 			// 
@@ -77,6 +77,7 @@
 			this.textBox1.Name = "textBox1";
 			this.textBox1.Size = new System.Drawing.Size(310, 20);
 			this.textBox1.TabIndex = 3;
+			this.textBox1.TabStop = false;
 			// 
 			// DisplayPasta
 			// 
