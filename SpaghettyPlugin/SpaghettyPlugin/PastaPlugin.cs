@@ -197,6 +197,8 @@ namespace SpaghettyPlugin
 
 
 
+			//TODO clean up this whole mess
+
 			if (inputDataList.Count < 2)
 			{
 				var lp = _pluginHost.launchyPaths();
@@ -249,6 +251,7 @@ namespace SpaghettyPlugin
 			var result = pw.ShowDialog();
 			if (result == DialogResult.OK)
 			{
+				//TODO add renaming
 				_spagBowl[key] = pw.GetPasta();
 			}
 		}
