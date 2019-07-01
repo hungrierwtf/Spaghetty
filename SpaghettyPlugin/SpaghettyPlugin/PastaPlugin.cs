@@ -144,6 +144,8 @@ namespace SpaghettyPlugin
 
 			foreach (var k in keys)
 			{
+				//TODO match better, allow for non-consecutive chars
+				// maybe use a cache
 				var lk = k.ToLowerInvariant();
 				if (lk == inputLower)
 				{
