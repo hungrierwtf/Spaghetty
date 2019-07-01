@@ -10,24 +10,42 @@ namespace SpaghettyPlugin
 {
 	public partial class DisplayPasta : Form
 	{
+		private string _pasta;
+		private string _origPasta;
+
 		public DisplayPasta()
 		{
 			InitializeComponent();
 		}
 
-		public DisplayPasta(string label, string text) : base()
+		public DisplayPasta(string label, string text) : this()
 		{
-			//TODO
+			_origPasta = _pasta = text;
+			pastaTx.Text = text;
+			Text = label;
+			refreshSaveEnabled();
 		}
 
-		public void SetOriginalText(string text)
+		private void refreshSaveEnabled()
 		{
-			//TODO
+			saveBt.Enabled = _pasta != _origPasta;
 		}
 
-		public string GetText()
+		public void SetOriginalPasta(string text)
 		{
-			return "text";
+			_origPasta = text;
+			refreshSaveEnabled();
+		}
+
+		public string GetPasta()
+		{
+			return _pasta;
+		}
+
+		private void pastaTx_TextChanged(object sender, EventArgs e)
+		{
+			_pasta = pastaTx.Text;
+			refreshSaveEnabled();
 		}
 	}
 }

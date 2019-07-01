@@ -28,12 +28,84 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
+			this.pastaTx = new System.Windows.Forms.TextBox();
+			this.canBt = new System.Windows.Forms.Button();
+			this.saveBt = new System.Windows.Forms.Button();
+			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.SuspendLayout();
+			// 
+			// pastaTx
+			// 
+			this.pastaTx.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.pastaTx.Location = new System.Drawing.Point(12, 12);
+			this.pastaTx.Multiline = true;
+			this.pastaTx.Name = "pastaTx";
+			this.pastaTx.Size = new System.Drawing.Size(472, 292);
+			this.pastaTx.TabIndex = 0;
+			this.pastaTx.TextChanged += new System.EventHandler(this.pastaTx_TextChanged);
+			// 
+			// canBt
+			// 
+			this.canBt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.canBt.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.canBt.Location = new System.Drawing.Point(409, 310);
+			this.canBt.Name = "canBt";
+			this.canBt.Size = new System.Drawing.Size(75, 23);
+			this.canBt.TabIndex = 1;
+			this.canBt.Text = "&Cancel";
+			this.canBt.UseVisualStyleBackColor = true;
+			// 
+			// saveBt
+			// 
+			this.saveBt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.saveBt.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.saveBt.Location = new System.Drawing.Point(328, 310);
+			this.saveBt.Name = "saveBt";
+			this.saveBt.Size = new System.Drawing.Size(75, 23);
+			this.saveBt.TabIndex = 2;
+			this.saveBt.Text = "&Save";
+			this.saveBt.UseVisualStyleBackColor = true;
+			// 
+			// textBox1
+			// 
+			this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.textBox1.Location = new System.Drawing.Point(12, 312);
+			this.textBox1.Name = "textBox1";
+			this.textBox1.Size = new System.Drawing.Size(310, 20);
+			this.textBox1.TabIndex = 3;
+			// 
+			// DisplayPasta
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
-			this.Text = "DisplayPasta";
+			this.CancelButton = this.canBt;
+			this.ClientSize = new System.Drawing.Size(496, 345);
+			this.Controls.Add(this.textBox1);
+			this.Controls.Add(this.saveBt);
+			this.Controls.Add(this.canBt);
+			this.Controls.Add(this.pastaTx);
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
+			this.MinimumSize = new System.Drawing.Size(512, 384);
+			this.Name = "DisplayPasta";
+			this.ShowIcon = false;
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.Text = "Pasta la vista baby";
+			this.TopMost = true;
+			this.ResumeLayout(false);
+			this.PerformLayout();
+
 		}
 
 		#endregion
+
+		private System.Windows.Forms.TextBox pastaTx;
+		private System.Windows.Forms.Button canBt;
+		private System.Windows.Forms.Button saveBt;
+		private System.Windows.Forms.TextBox textBox1;
 	}
 }

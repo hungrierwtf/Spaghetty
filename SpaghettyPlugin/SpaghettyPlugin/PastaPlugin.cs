@@ -238,15 +238,16 @@ namespace SpaghettyPlugin
 			}
 
 			var pw = new DisplayPasta(key, text);
+
 			if (newPasta)
 			{
-				pw.SetOriginalText("");
+				pw.SetOriginalPasta("");
 			}
 
 			var result = pw.ShowDialog();
 			if (result == DialogResult.OK)
 			{
-				_spagBowl[key] = pw.GetText();
+				_spagBowl[key] = pw.GetPasta();
 			}
 		}
 		#endregion
