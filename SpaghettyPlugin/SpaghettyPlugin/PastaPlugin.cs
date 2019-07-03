@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace SpaghettyPlugin
 {
@@ -21,12 +22,34 @@ namespace SpaghettyPlugin
 		private ICatItemFactory _catFactory;
 		private uint? _hash;
 		private string _iconPath;
+		private IPastaMatcher _matcher;
+
+		interface IPastaMatcher
+		{
+			bool Matches(string haystack, string needle);
+		}
+
+		class PastaMatcher : IPastaMatcher
+		{
+			public bool Matches(string haystack, string needle)
+			{
+				var result = needle.Aggregate(haystack, (hs, nd) =>
+				{
+					if (hs == null) return null;
+					var i = hs.IndexOf(nd);
+					if (i < 0) return null;
+					return hs.Substring(i + 1);
+				});
+				return result != null;
+			}
+		}
 
 
 		public void init(IPluginHost pluginHost)
 		{
 			_pluginHost = pluginHost;
 			_catFactory = pluginHost.catItemFactory();
+			_matcher = new PastaMatcher();
 
 			var cfgPath = pluginHost.launchyPaths().getConfigPath();
 			var pastaFullPath = System.IO.Path.Combine(cfgPath, PASTA_FILENAME);
@@ -149,7 +172,7 @@ namespace SpaghettyPlugin
 					addNew = false;
 					resultsList.Add(createCat(k));
 				}
-				else if (lk.Contains(inputLower))
+				else if (_matcher.Matches(lk, inputLower))
 				{
 					resultsList.Add(createCat(k));
 				}
